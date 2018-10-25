@@ -1,0 +1,12 @@
+<div>
+  
+    <h2>Details about: {{task.name | uppercase}}</h2>
+    <label>Name
+      <input [(ngModel)]="task.name" placeholder="name">
+    </label>
+    <strong>id: </strong>{{task.id}}
+    <strong>name: </strong>{{task.name}}
+    <strong>severity: </strong>{{task.severity}}
+
+    <button (click)="goBack()">Back</button>
+</div>
