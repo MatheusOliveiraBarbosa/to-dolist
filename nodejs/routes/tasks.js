@@ -1,9 +1,30 @@
 const express = require('express');
 const router = express.Router();
+const sequelize = require('../api/models/connect_db');
+const Task = require('../api/models/task');
 
 
 router.get('/',(req, res, next) => {
-    const tasks = [
+    
+
+    sequelize.sync().then(function () {
+        Task.create({
+            name: 'Task Initital',
+            severity: 'HIGH'
+        });
+        console.log('Task created success');
+    }).catch(err => {
+        console.error('Error happens: ', err);
+    });
+    
+    Task.findOne().then(task => {
+        console.log(task.get('name')); //seleciona um valor e retorna o nome
+    });
+
+    Task.findAll({}).then(function(tasks) {
+        res.status(200).json(tasks);
+    });
+    /*const tasks = [
         {id:"1", severity:"HIGH", name: "task initial"},
         {id:"2", severity:"LOW", name: "task initial"},
         {id:"3", severity:"MEDIUM", name: "task initial"},
@@ -12,7 +33,7 @@ router.get('/',(req, res, next) => {
     ];
     res.status(200).json(
        {tasks}
-    );
+    );*/
 });
 
 router.get('/:taskId',(req, res, next) => {
