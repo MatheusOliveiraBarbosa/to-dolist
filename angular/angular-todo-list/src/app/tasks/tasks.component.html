@@ -5,6 +5,23 @@
       <a routerLink="/tasks/{{task.id}}">
         <span>{{task.severity}}</span>== {{task.name}}
       </a>
+      <button (click)="deleteTask(task)">
+        X
+      </button>
     </li>
   </ul>
+</div>
+
+<div>
+  <label>Name:
+    <input #taskName />
+  </label>
+  <label>Severity:
+    <input #taskSeverity />
+  </label>
+
+  <button (click)="createTask(taskName.value, taskSeverity.value); taskName.value=''; taskSeverity.value='' ">
+    Add
+  </button>
+
 </div>

@@ -17,9 +17,7 @@ exports.task_get_by_id = (req, res, next) => {
     Task.findOne({where : {id : _id}}).
     then(task => {
         if (task){
-            res.status(200).json({
-                task
-            });
+            res.status(200).json(task);
         }else{
             res.status(404).json({
                 message: "Don't find any task with id: " + _id

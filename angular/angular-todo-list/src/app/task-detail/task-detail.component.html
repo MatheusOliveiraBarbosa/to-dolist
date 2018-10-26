@@ -1,5 +1,5 @@
-<div>
-  
+<div *ngIf="task">
+
     <h2>Details about: {{task.name | uppercase}}</h2>
     <label>Name
       <input [(ngModel)]="task.name" placeholder="name">
@@ -9,4 +9,5 @@
     <strong>severity: </strong>{{task.severity}}
 
     <button (click)="goBack()">Back</button>
+    <button (click)="update()">Update</button>
 </div>
