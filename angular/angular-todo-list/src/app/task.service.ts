@@ -12,7 +12,7 @@ import {MessageService} from './message.service';
 @Injectable()
 export class TaskService {
 
-  private tasksUrl = 'http://localhost:4200/api/tasks'  //URL to web api
+  private tasksUrl = 'http://localhost:3000/tasks'  //URL to web api
   
   constructor(private http: HttpClient,
     private messageService : MessageService) { }

@@ -9,7 +9,7 @@ import { TaskService } from '../task.service';
 })
 export class TasksComponent implements OnInit {
 
-  taskList : Task[];
+  tasks : Task[];
 
   constructor(private taskService : TaskService) { }
 
@@ -18,7 +18,7 @@ export class TasksComponent implements OnInit {
   }
 
   getTasks() : void {
-    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
 
 }

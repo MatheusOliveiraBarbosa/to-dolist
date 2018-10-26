@@ -21,7 +21,7 @@ router.get('/:id',(req, res, next) => {
                 task
             });
         }else{
-            res.status(500).json({
+            res.status(404).json({
                 message: "Don't find any task with id: " + _id
             });
         }
