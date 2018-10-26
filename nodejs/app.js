@@ -19,7 +19,7 @@ app.use((req, res, next) =>{
 });
 
 
-const tasksRoutes = require('./routes/tasks');
+const tasksRoutes = require('./api/routes/tasks');
 
 app.use('/tasks', tasksRoutes);
 
